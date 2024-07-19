@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>入れ子オブジェクトのテスト</title>
+    </head>
+    <body>
+        <main>
+            <h2>入れ子オブジェクトのテスト</h2>
+            <form method="post" th:action="@{/nested}" th:object="${createEnqueteForm}">
+                <label for="enqueteName">アンケート名</label>
+                <input type="text" th:field="*{enqueteName}"/>
+                <th:block th:each="question, iterStatQuestion : *{createQuestionForms}">
+                    <h3 th:text="|Question ${iterStatQuestion.index + 1}|">Question 1</h3>
+                    <input type="text" th:field="*{createQuestionForms[__${iterStatQuestion.index}__].questionName}"/>
+                    <th:block th:each="select, iterStatSelect : *{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms}">
+                        <h4 th:text="|Select ${iterStatSelect.index + 1}|">Select 1</h4>
+                        <input type="text" th:field="*{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms[__${iterStatSelect.index}__].selectName}"/>
+                    </th:block>
+                </th:block>
+                <button type="submit">作成</button>
+            </form>
+        </main>
+    </body>
+</html>
