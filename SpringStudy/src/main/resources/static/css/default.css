@@ -1,0 +1,7 @@
+/* メインコンテンツのレイアウトを設定 */
+.main_container{
+	display: grid;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
