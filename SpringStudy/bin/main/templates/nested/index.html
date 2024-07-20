@@ -3,6 +3,8 @@
 
 <head>
 	<title>入れ子オブジェクトのテスト</title>
+	<link rel="stylesheet" th:href="@{/css/default.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/css/enquete.css}" type="text/css">
 </head>
 
 <body>
@@ -12,43 +14,39 @@
 				<h2>入れ子オブジェクトのテスト</h2>
 				<form method="post" th:action="@{/nested}" th:object="${createEnqueteForm}" id="create_enquete_form">
 					<div class="enquete">
-						<label for="enqueteName">アンケート名</label>
+						<h3>アンケート名</h3>
 						<input type="text" th:field="*{enqueteName}" />
 					</div>
-					<div class="questions">
-						<th:block th:each="question, iterStatQuestion : *{createQuestionForms}">
-							<div class="question">
-								<h3 th:text="|Question ${iterStatQuestion.index + 1}|">Question 1</h3>
-								<input type="text"
-									th:field="*{createQuestionForms[__${iterStatQuestion.index}__].questionName}" />
-							</div>
-							<div class="selects">
-								<th:block
-									th:each="select, iterStatSelect : *{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms}">
-									<div class="select">
-										<h4 th:text="|Select ${iterStatSelect.index + 1}|">Select 1</h4>
-										<input type="text"
-											th:field="*{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms[__${iterStatSelect.index}__].selectName}" />
-									</div>
-									<div class="del_select_button">
-										<button id="del_select">選択肢削除</button>
-									</div>
-								</th:block>
-							</div>
-							<div class="add_select_button">
-									<button id="add_select">選択肢追加</button>
+					<th:block th:each="question, iterStatQuestion : *{createQuestionForms}">
+						<div class="question">
+							<h3 th:text="|Question ${iterStatQuestion.index + 1}|">Question 1</h3>
+							<input type="text"
+								th:field="*{createQuestionForms[__${iterStatQuestion.index}__].questionName}" />
+							<th:block
+								th:each="select, iterStatSelect : *{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms}">
+								<div class="select">
+									<h4 th:text="|Select ${iterStatSelect.index + 1}|">Select 1</h4>
+									<input type="text"
+										th:field="*{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms[__${iterStatSelect.index}__].selectName}" />
 								</div>
-							<div class="del_question_button">
-								<button id="del_question">設問削除</button>
+								<div class="del_select_button">
+									<button id="del_select">削除</button>
+								</div>
+							</th:block>
+							<div class="add_select_button">
+								<button id="add_select">選択肢追加</button>
 							</div>
-						</th:block>
-					</div>
+						</div>
+						<div class="del_question_button">
+							<button id="del_question">設問削除</button>
+						</div>
+					</th:block>
 					<div class="add_question_button">
 						<button id="add_question">設問追加</button>
 					</div>
 				</form>
 			</div>
-			<div class="section" style="text-align: center;">
+			<div class="create_enquete_button">
 				<button type="submit" form="create_enquete_form">アンケート作成</button>
 			</div>
 		</div>
