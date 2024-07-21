@@ -1,4 +1,4 @@
-/* メインコンテンツのレイアウトを設定 */
+ メインコンテンツのレイアウトを設定 
 .main_container{
 	display: flex;
 	flex-wrap: wrap;

@@ -34,7 +34,7 @@ public class TestNestedObjectController {
 	@PostMapping
 	public String objectToString(CreateEnqueteForm createEnqueteForm, Model model) {
 		
-		createEnqueteForm.toString();
+		System.out.println(createEnqueteForm.toString());
 		
 		model.addAttribute(createEnqueteForm);
 		
