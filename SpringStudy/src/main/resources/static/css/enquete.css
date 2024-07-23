@@ -11,7 +11,7 @@ form{
 	padding-bottom: 30px;
 }
 
-.create_enquete_button{
+.create-enquete-button{
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -35,17 +35,17 @@ form{
 	height: 100px;
 }
 
-.del_question_button{
+.del-question-button{
 	width: 5%;
 	margin-top: auto;
 	margin-bottom: auto;
 }
 
-.del_question_button button{
+.del-question-button button{
 	margin: auto;
 }
 
-.add_question_button{
+.add-question-button{
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -59,14 +59,14 @@ form{
 	height: 16px;
 }
 
-.del_select_button{
+.del-select-button{
 	width: 5%;
 	margin-left: auto;
 	margin-top: auto;
 	margin-bottom: auto;
 }
 
-.add_select_button{
+.add-select-button{
 	margin: auto;
 	margin-top: 10px;
 	margin-bottom: 10px;

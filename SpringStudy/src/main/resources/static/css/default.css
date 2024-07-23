@@ -1,5 +1,5 @@
  メインコンテンツのレイアウトを設定 
-.main_container{
+.main-container{
 	display: flex;
 	flex-wrap: wrap;
 	width: 700px;

@@ -4,17 +4,17 @@
 <head>
 	<title>入れ子オブジェクトのテスト</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script th:src="@{/js/create_enquete.js}"></script>
+	<script th:src="@{/js/create-enquete.js}"></script>
 	<link rel="stylesheet" th:href="@{/css/default.css}" type="text/css">
 	<link rel="stylesheet" th:href="@{/css/enquete.css}" type="text/css">
 </head>
 
 <body>
 	<main>
-		<div class="main_container">
+		<div class="main-container">
 			<div class="section">
 				<h2>入れ子オブジェクトのテスト</h2>
-				<form method="post" th:action="@{/nested}" th:object="${createEnqueteForm}" id="create_enquete_form">
+				<form method="post" th:action="@{/nested}" th:object="${createEnqueteForm}" id="create-enquete-form">
 					<div class="enquete">
 						<h3>アンケート名</h3>
 						<input type="text" th:field="*{enqueteName}" />
@@ -31,25 +31,25 @@
 									<input type="text"
 										th:field="*{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms[__${iterStatSelect.index}__].selectName}" />
 								</div>
-								<div class="del_select_button">
-									<button type="button" class="del_select">削除</button>
+								<div class="del-select-button">
+									<button type="button" class="del-select">削除</button>
 								</div>
 							</th:block>
-							<div class="add_select_button">
-								<button type="button" class="add_select">選択肢追加</button>
+							<div class="add-select-button">
+								<button type="button" class="add-select">選択肢追加</button>
 							</div>
 						</div>
-						<div class="del_question_button">
-							<button type="button" class="del_question">設問削除</button>
+						<div class="del-question-button">
+							<button type="button" class="del-question">設問削除</button>
 						</div>
 					</th:block>
-					<div class="add_question_button">
-						<button type="button" class="add_question">設問追加</button>
+					<div class="add-question-button">
+						<button type="button" class="add-question">設問追加</button>
 					</div>
 				</form>
 			</div>
-			<div class="create_enquete_button">
-				<button type="submit" form="create_enquete_form">アンケート作成</button>
+			<div class="create-enquete-button">
+				<button type="submit" form="create-enquete-form">アンケート作成</button>
 			</div>
 		</div>
 	</main>
