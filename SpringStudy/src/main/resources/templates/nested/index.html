@@ -20,27 +20,31 @@
 						<input type="text" th:field="*{enqueteName}" />
 					</div>
 					<th:block th:each="question, iterStatQuestion : *{createQuestionForms}">
-						<div class="question">
-							<h3 th:text="|Question ${iterStatQuestion.index + 1}|">Question 1</h3>
-							<input type="text"
-								th:field="*{createQuestionForms[__${iterStatQuestion.index}__].questionName}" />
-							<th:block
-								th:each="select, iterStatSelect : *{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms}">
-								<div class="select">
-									<h4 th:text="|Select ${iterStatSelect.index + 1}|">Select 1</h4>
-									<input type="text"
-										th:field="*{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms[__${iterStatSelect.index}__].selectName}" />
+						<div class="question-container" draggable="true">
+							<div class="question">
+								<h3 th:text="|Question ${iterStatQuestion.index + 1}|">Question 1</h3>
+								<input type="text"
+									th:field="*{createQuestionForms[__${iterStatQuestion.index}__].questionName}" />
+								<th:block
+									th:each="select, iterStatSelect : *{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms}">
+									<div class="select-container" draggable="true">
+										<div class="select">
+											<h4 th:text="|Select ${iterStatSelect.index + 1}|">Select 1</h4>
+											<input type="text"
+												th:field="*{createQuestionForms[__${iterStatQuestion.index}__].createSelectForms[__${iterStatSelect.index}__].selectName}" />
+										</div>
+										<div class="del-select-button">
+											<button type="button" class="del-select">削除</button>
+										</div>
+									</div>
+								</th:block>
+								<div class="add-select-button">
+									<button type="button" class="add-select">選択肢追加</button>
 								</div>
-								<div class="del-select-button">
-									<button type="button" class="del-select">削除</button>
-								</div>
-							</th:block>
-							<div class="add-select-button">
-								<button type="button" class="add-select">選択肢追加</button>
 							</div>
-						</div>
-						<div class="del-question-button">
-							<button type="button" class="del-question">設問削除</button>
+							<div class="del-question-button">
+								<button type="button" class="del-question">設問削除</button>
+							</div>
 						</div>
 					</th:block>
 					<div class="add-question-button">

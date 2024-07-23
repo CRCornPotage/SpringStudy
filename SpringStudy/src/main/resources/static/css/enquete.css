@@ -71,3 +71,11 @@ form{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.question-container{
+	width: 100%;
+}
+
+.select-container{
+	width: 100%;
+}

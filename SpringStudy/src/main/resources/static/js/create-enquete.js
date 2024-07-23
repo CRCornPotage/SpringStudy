@@ -61,5 +61,50 @@ $(function(){
 		$(this).closest('.question').remove();
 		
 	});
+
+	/** ドラッグアンドドロップによる要素入れ替え処理 */
+	/** 設問入れ替え */
+
+	/** ドラッグ中のエレメントを格納する変数 */
+	let draggedElement = null;
+
+	/** ドラッグ開始処理 */
+	$(document).on('dragstart', '.question-container', function(event){
+		console.log('dragstart');
+		event.preventDefault;
+		draggedElement = this;
+		event.originalEvent.dataTransfer.effectAllowed = 'move';
+		event.originalEvent.dataTransfer.setData('text/html', event.target.outerHTML);
+		$(event.target).addClass('dragging');
+	});
+
+	/** ドラッグ中 */
+	$(document).on('dragover', '.question-container', function(event){
+		console.log('dragover');
+		event.preventDefault();
+		event.originalEvent.dataTransfer.dropEffect = 'move';
+	});
+
+	/** ドロップによる設問入れ替え処理 */
+	$(document).on('drop', '.question-container', function(event){
+		console.log('drop');
+		event.preventDefault;
+		let target = $(event.target);
+		$(draggedElement).removeClass('dragging');
+		if(target && $(target).hasClass('question-container') && draggedElement !== target){
+			let temp = $('<div></div>');
+			$(draggedElement).before(temp);
+			$(target).before(draggedElement);
+			$(temp).before(target);
+			temp.remove();
+		}
+	});
+
+	/** ドラッグ終了処理 */
+	$(document).on('dragend', '.question-container', function(event){
+		console.log('dragend');
+		event.preventDefault;
+		$(event.target).removeClass('dragging');
+	});
 	
 });
