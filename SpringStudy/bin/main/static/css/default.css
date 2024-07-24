@@ -1,0 +1,22 @@
+ メインコンテンツのレイアウトを設定 
+.main-container{
+	display: flex;
+	flex-wrap: wrap;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form{
+	width: 100%;
+}
+
+.section{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.section h2{
+	width: 100%;
+}
