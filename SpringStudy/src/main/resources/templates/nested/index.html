@@ -59,4 +59,11 @@
 	</main>
 </body>
 
+<script th:inline="javascript">
+	$(function(){
+		const CREATE_QUESTION_FORMS = /*[[${createEnqueteForm.createQuestionForms}]]*/{};
+		console.log(CREATE_QUESTION_FORMS);
+	});
+</script>
+
 </html>
